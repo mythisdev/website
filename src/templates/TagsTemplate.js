@@ -39,7 +39,7 @@ const Tags = ({ pageContext, data }) => {
           </Article>
         )}
       </ThemeContext.Consumer>
-      <Seo data={tag} facebook={facebook} />
+      <Seo facebook={facebook} />
     </React.Fragment>
   );
 };

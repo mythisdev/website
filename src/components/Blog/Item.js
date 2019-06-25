@@ -43,7 +43,7 @@ const Item = props => {
             </span>
             {tags &&
               tags.map(tag => (
-                <span key={tag.fieldValue}>
+                <span key={tag}>
                   <FaTag size={18} /> {tag}
                 </span>
               ))}
