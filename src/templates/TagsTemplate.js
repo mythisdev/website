@@ -6,6 +6,7 @@ import { ThemeContext } from "../layouts";
 
 // Components
 import List from "../components/List";
+import Blog from "../components/Blog";
 import Article from "../components/Article";
 import Seo from "../components/Seo";
 import Headline from "../components/Article/Headline";
@@ -31,7 +32,7 @@ const Tags = ({ pageContext, data }) => {
                 {tagHeader}
               </Headline>
             </header>
-            <List edges={edges} theme={theme} />
+            <Blog posts={edges} theme={theme} />
             <Link style={{ textDecoration: "italic" }} to="/tags">
               其他tags
             </Link>
@@ -41,29 +42,6 @@ const Tags = ({ pageContext, data }) => {
       <Seo data={tag} facebook={facebook} />
     </React.Fragment>
   );
-};
-
-Tags.propTypes = {
-  pageContext: PropTypes.shape({
-    tag: PropTypes.string.isRequired
-  }),
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      totalCount: PropTypes.number.isRequired,
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired
-            }),
-            fields: PropTypes.shape({
-              slug: PropTypes.string.isRequired
-            })
-          })
-        }).isRequired
-      )
-    })
-  })
 };
 
 export default Tags;
@@ -85,11 +63,25 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
+          excerpt
           fields {
             slug
+            prefix
           }
           frontmatter {
             title
+            category
+            author
+            tags
+            cover {
+              children {
+                ... on ImageSharp {
+                  fluid(maxWidth: 800, maxHeight: 360) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
+            }
           }
         }
       }
