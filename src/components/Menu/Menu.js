@@ -2,9 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 require("core-js/fn/array/from");
 
-import { FaHome } from "react-icons/fa/";
+import { FaHome, FaListAlt, FaTags } from "react-icons/fa/";
 import { FaSearch } from "react-icons/fa/";
-import { FaTag } from "react-icons/fa/";
 
 import Item from "./Item";
 import Expand from "./Expand";
@@ -23,7 +22,8 @@ class Menu extends React.Component {
 
     this.items = [
       { to: "/", label: "首頁", icon: FaHome },
-      { to: "/category/", label: "目錄", icon: FaTag },
+      { to: "/category/", label: "目錄", icon: FaListAlt },
+      { to: "/tags/", label: "Tags", icon: FaTags },
       { to: "/search/", label: "搜尋", icon: FaSearch },
       ...pages
     ];

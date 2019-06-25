@@ -1,4 +1,4 @@
-import { FaTag } from "react-icons/fa/";
+import { FaListAlt } from "react-icons/fa/";
 import PropTypes from "prop-types";
 import React from "react";
 import { graphql } from "gatsby";
@@ -26,16 +26,9 @@ const CategoryTemplate = props => {
           <Article theme={theme}>
             <header>
               <Headline theme={theme}>
-                <span>Posts in category</span> <FaTag />
+                <span>目錄</span> <FaListAlt />
                 {category}
               </Headline>
-              <p className="meta">
-                There {totalCount > 1 ? "are" : "is"} <strong>{totalCount}</strong> post{totalCount >
-                1
-                  ? "s"
-                  : ""}{" "}
-                in the category.
-              </p>
               <List edges={edges} theme={theme} />
             </header>
           </Article>

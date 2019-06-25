@@ -15,8 +15,8 @@ const Item = props => {
       fields: { slug, prefix },
       frontmatter: {
         title,
-        category,
         author,
+        tags,
         cover: {
           children: [{ fluid }]
         }
@@ -41,11 +41,12 @@ const Item = props => {
             <span>
               <FaUser size={18} /> {author}
             </span>
-            {category && (
-              <span>
-                <FaTag size={18} /> {category}
-              </span>
-            )}
+            {tags &&
+              tags.map(tag => (
+                <span key={tag.fieldValue}>
+                  <FaTag size={18} /> {tag}
+                </span>
+              ))}
           </p>
           <p>{excerpt}</p>
         </Link>

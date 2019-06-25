@@ -1,7 +1,8 @@
 ---
 title: JAMstack
-category: "網頁"
+category: "網頁開發"
 cover: JAMstack.png
+tags: ["網頁開發", "frontend", "jam-stack"]
 author: Horst Leung
 ---
 在寫這個網站時，一直在想應該用什麼工具去開發。由於個人比起HTML + CSS，比較喜歡用react去開發frontend，所以在一番Gooogle 後，找到了[GatsbyJS](https://www.gatsbyjs.org/)。在GatsbyJS的網站，找到了一個buzzword - **JAMstack**

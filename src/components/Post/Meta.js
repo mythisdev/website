@@ -2,13 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 
-import { FaCalendar } from "react-icons/fa/";
-import { FaUser } from "react-icons/fa/";
-import { FaTag } from "react-icons/fa/";
+import { FaCalendar, FaTag, FaUser, FaListAlt } from "react-icons/fa/";
+import kebabCase from "lodash/kebabCase";
 
 const Meta = props => {
-  const { prefix, author: authorName, category, theme } = props;
-
+  const { prefix, author: authorName, category, tags, theme } = props;
   return (
     <p className="meta">
       <span>
@@ -17,12 +15,21 @@ const Meta = props => {
       <span>
         <FaUser size={18} /> {authorName}
       </span>
+
       {category && (
         <span>
-          <FaTag size={18} />
+          <FaListAlt size={18} />
           <Link to={`/category/${category.split(" ").join("-")}`}>{category}</Link>
         </span>
       )}
+
+      {tags &&
+        tags.map(tag => (
+          <span key={tag}>
+            <FaTag size={18} />
+            <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+          </span>
+        ))}
 
       {/* --- STYLES --- */}
       <style jsx>{`
@@ -58,6 +65,7 @@ Meta.propTypes = {
   prefix: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   category: PropTypes.string,
+  tags: PropTypes.array,
   theme: PropTypes.object.isRequired
 };
 
