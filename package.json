@@ -37,6 +37,7 @@
     "prismjs": "^1.15.0",
     "react": "^16.5.2",
     "react-addons-perf": "^15.4.2",
+    "react-adsense": "^0.1.0",
     "react-dom": "^16.5.2",
     "react-facebook": "^5.0.3",
     "react-helmet": "^5.2.0",

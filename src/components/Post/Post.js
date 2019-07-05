@@ -9,6 +9,7 @@ import Meta from "./Meta";
 import Author from "./Author";
 import Comments from "./Comments";
 import NextPrev from "./NextPrev";
+import Ad from "../Ad";
 
 const Share = asyncComponent(() =>
   import("./Share")
@@ -39,6 +40,7 @@ const Post = props => {
         <Meta prefix={prefix} author={author} category={category} tags={tags} theme={theme} />
       </header>
       <Bodytext html={html} theme={theme} />
+      <Ad />
       <footer>
         <Share post={post} theme={theme} />
         <Author note={authornote} theme={theme} />
