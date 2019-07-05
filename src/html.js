@@ -25,6 +25,13 @@ export default class HTML extends React.Component {
           <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <script>
+              (adsbygoogle = window.adsbygoogle || []).push({
+                    google_ad_client: "ca-pub-1456592033372548",
+                    enable_page_level_ads: true
+              });
+          </script>
         </head>
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}
