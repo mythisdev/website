@@ -1,7 +1,7 @@
 ---
 title: React Native Hermes
 category: "App開發"
-cover: coding.jpg
+cover: hermes.jpg
 tags: ["React native", "mobile app", "setup"]
 author: Horst Leung
 ---
