@@ -9,12 +9,33 @@ author: Horst Leung
 
 上次在[React Native setup](/React-native-project-setup/)中寫過有關VSCode中**Debug**的設定，今次簡單的寫一寫Node js 的Debug設定。
 
-###沒有Project的小伙伴可以先創一個react的
+###沒有Project的小伙伴可以先創一個`index.js`
 ```javascript
-npx create-react-app my-app
-cd my-app
-yarn start
+var http = require('http')
+
+http.createServer(onRequest).listen(8888);
+console.log('Server has started');
+
+function onRequest(request, response){
+  response.writeHead(200);
+  response.write('Hello World');
+  response.end();
+}
 ```
+
+然後再在`package.json`加入
+```javascript
+{
+    ...
+    "scripts": {
+        "start": "node index.js",
+        ...
+    },
+    ...
+}
+```
+之後就可以使用`yarn start`去運行了
+
 
 ###還記得那個`.vscode/.launch.json`嗎？
 上次是generate的，今次要手打了
@@ -88,3 +109,23 @@ yarn start
 ```
 
 搞掂
+
+###如果你是使用`create-react-app`(CRA)做frontend
+忘記以上的setting, 直接點就可以了
+```
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Chrome",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:3000",
+        "webRoot": "${workspaceFolder}/src",
+        "sourceMapPathOverrides": {
+          "webpack:///src/*": "${webRoot}/*"
+        }
+      }
+    ]
+  }
+```
