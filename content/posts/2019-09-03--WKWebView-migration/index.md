@@ -16,12 +16,17 @@ WKWebView有2種delegate可以設定，一種是[WKUIDelegate](https://developer
 
 ###WKNavigationDelegate
 原本在UIWebViewDelegate中的methods多半都是要改成WKNavigationDelegate的。大致上就是
-| UIWebViewDelegate                                    | WKNavigationDelegate                                                                     |
-|------------------------------------------------------|------------------------------------------------------------------------------------------|
-| - webView:shouldStartLoadWithRequest:navigationType: | - webView:decidePolicyForNavigationAction:decisionHandler:                               |
-| - webViewDidStartLoad:                               | - webView:didCommitNavigation:                                                           |
-| - webViewDidFinishLoad:                              | - webView:didFinishNavigation:                                                           |
-| - webView:didFailLoadWithError:                      | - webView:didFailNavigation:withError: - webView:didFailProvisionalNavigation:withError: |
++-------------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+| UIWebViewDelegate                                                 | WKNavigationDelegate                                                                           |
++===================================================================+================================================================================================+
+| - webView:shouldStartLoadWithRequest:navigationType:              | - webView:decidePolicyForNavigationAction:decisionHandler:                                     |
++-------------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+| - webViewDidStartLoad:                                            | - webView:didCommitNavigation:                                                                 |
++-------------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+| - webViewDidFinishLoad:                                           | - webView:didFinishNavigation:                                                                 |
++-------------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+| - webView:didFailLoadWithError:                                   | - webView:didFailNavigation:withError: - webView:didFailProvisionalNavigation:withError:       |
++-------------------------------------------------------------------+------------------------------------------------------------------------------------------------+
 
 
 ###WKUIDelegate
